@@ -1,0 +1,56 @@
+# Bytecode e caches do Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ambientes Virtuais
+.env/
+venv/
+.venv/
+
+# Arquivos de configuração de ambiente
+*.env
+*.env.*
+
+# Logs e arquivos de depuração
+*.log
+*.out
+*.err
+debug.log
+
+# Arquivos gerados pela IDE
+.vscode/
+.idea/
+*.iml
+
+# Arquivos relacionados ao MongoDB
+*.lock
+data/
+dump/
+
+# Configurações do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Dependências específicas
+pip-wheel-metadata/
+poetry.lock
+Pipfile
+Pipfile.lock
+
+# Arquivos temporários e backups
+*.bak
+*.swp
+*.tmp
+
+# Arquivos de documentação ou testes
+.coverage
+.tox/
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Docker (caso esteja usando)
+docker-compose.override.yml
+*.dockerignore
