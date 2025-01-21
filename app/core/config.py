@@ -7,7 +7,6 @@ class Settings(BaseSettings):
     JWT_SECRET: str = "SUPER_SECRET_JWT"
     JWT_ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
-    OPENAI_API_KEY: str
 
     class Config:
         env_file = ".env"
