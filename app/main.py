@@ -1,25 +1,20 @@
-# app/main.py
-
 from fastapi import FastAPI
-from app.presentation.routers import auth_router
-from app.core.config import settings
-from app.core.database import connect_to_mongo, close_mongo_connection
+from app.core.database import close_mongo_connection
+from app.presentation.routers import auth_router, question_router
 
 def create_app() -> FastAPI:
-    app = FastAPI(title=settings.PROJECT_NAME)
+    app = FastAPI()
 
-    # Eventos de inicialização e finalização da app
     @app.on_event("startup")
-    async def startup_db_client():
-        await connect_to_mongo()
+    async def startup_event():
+        print("Aplicação iniciada!")
 
     @app.on_event("shutdown")
-    async def shutdown_db_client():
+    async def shutdown_event():
         await close_mongo_connection()
-
-    # Inclui as rotas
+    
     app.include_router(auth_router.router, prefix="/auth", tags=["Auth"])
-
+    app.include_router(question_router.router, prefix="/questions", tags=["Questions"])
     return app
 
 app = create_app()
