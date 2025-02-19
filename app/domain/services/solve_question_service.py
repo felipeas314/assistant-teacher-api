@@ -11,9 +11,10 @@ async def solve_question(image_bytes: bytes) -> dict:
     analysis = await caption_image(image_bytes)
     print(analysis)
     # Formata os dados para o LLM
+    #print('qwer')
     combined_input = f"Texto da questão: {text}\nAnálise visual: {analysis}"
-
+    #print(combined_input)
     # Resolve com GPT
     solution = solve_with_gpt(combined_input)
 
-    return {"text": text, "visual_analysis": clip_analysis, "solution": solution}
+    return {"text": text, "visual_analysis": analysis, "solution": solution}
